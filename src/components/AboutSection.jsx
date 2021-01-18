@@ -1,12 +1,13 @@
 import React from "react";
 import home1 from "../img/home1.png";
+import { About, Description, Image, Hide } from "../styles";
+
 //Styled
 
 //  Framer Motion
 import { motion } from "framer-motion";
 import { titleAnim, fade, photoAnim } from "../animation";
-
-import { About, Description, Image, Hide } from "../styles";
+import Wave from "./Wave";
 
 const AboutSection = () => {
   return (
@@ -32,8 +33,16 @@ const AboutSection = () => {
         <motion.button variants={fade}>Contact Us</motion.button>
       </Description>
       <Image>
-        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
+        {/* Remove the staggering effect by just adding intial and animate */}
+        <motion.img
+          variants={photoAnim}
+          // initial="hidden"
+          // animate="show"
+          src={home1}
+          alt="guy with a camera"
+        />
       </Image>
+      <Wave />
     </About>
   );
 };
